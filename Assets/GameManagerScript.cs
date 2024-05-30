@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject boxPrefab;
     public GameObject goalPrefab;
+    public GameObject wallPrefab;
     /// <summary>初期状態が入っている</summary>
     int[,] map;
     /// <summary>現在のマップの状態が入っている</summary>
@@ -50,10 +51,10 @@ public class GameManager : MonoBehaviour
     /// <returns>移動可能な時 true</returns>
     bool MoveNumber(Vector2Int movefrom, Vector2Int moveto)
     {
-        if (moveto.y < 0 || moveto.y >= field.GetLength(0))
+        if (moveto.y < 1 || moveto.y >= field.GetLength(0)-1)
             return false;
 
-        if (moveto.x < 0 || moveto.x >= field.GetLength(1))
+        if (moveto.x < 1 || moveto.x >= field.GetLength(1)-1)
             return false;
 
         if (field[moveto.y, moveto.x]?.tag == "Box")
@@ -112,18 +113,24 @@ public class GameManager : MonoBehaviour
         Debug.Log(debugText);
     }
 
+    //void Initialize()
+    //{
+
+    //}
     void Start()
     {
         clearText.SetActive(false);
 
         map = new int[,]
         {
-            { 1, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 3, 0, 0, 2, 3, 0, 0 },
-            { 0, 0, 0, 0, 2, 0, 0, 0, 0 },
-            { 0, 0, 0, 3, 0, 0, 0, 2, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 2, 0, 0, 3, 0, 0, 0 }
+            { 4, 4, 4, 4, 4, 4, 4 ,4, 4, 4 },
+            { 4, 1, 0, 0, 0, 0, 0, 0, 0, 4 },
+            { 4, 0, 0, 3, 0, 0, 2, 3, 0, 4 },
+            { 4, 0, 2, 0, 0, 2, 0, 0, 0, 4 },
+            { 4, 0, 0, 0, 3, 0, 0, 0, 0, 4 },
+            { 4, 0, 0, 0, 0, 0, 0, 0, 0, 4 },
+            { 4, 0, 0, 2, 0, 0, 3, 0, 0, 4 },
+            { 4, 4, 4, 4, 4, 4, 4 ,4, 4, 4 }
         };
 
         PrintArray();
@@ -154,6 +161,11 @@ public class GameManager : MonoBehaviour
                     instance =
                         Instantiate(goalPrefab, new Vector3(x, -1 * y, 0), Quaternion.identity);
                 }   // ゴールを見つけた
+                else if (map[y, x] == 4)
+                {
+                    instance =
+                        Instantiate(wallPrefab, new Vector3(x, -1 * y, 0), Quaternion.identity);
+                }   // 壁を見つけた
             }
         }
     }

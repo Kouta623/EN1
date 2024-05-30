@@ -3,7 +3,12 @@ guid: 727470faa0bac7046a1e8a3c6a2d96b8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clearText: {instanceID: 0}
+  - playerPrefab: {instanceID: 0}
+  - boxPrefab: {instanceID: 0}
+  - goalPrefab: {instanceID: 0}
+  - wallPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
