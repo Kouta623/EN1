@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -113,12 +114,13 @@ public class GameManager : MonoBehaviour
         Debug.Log(debugText);
     }
 
-    //void Initialize()
-    //{
-
-    //}
+    
+    
     void Start()
     {
+        //解像度、ウィンドウ
+        Screen.SetResolution(Screen.width, Screen.height,false);
+
         clearText.SetActive(false);
 
         map = new int[,]
@@ -172,7 +174,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             var playerPostion = GetPlayerIndex();
             MoveNumber(playerPostion, playerPostion + Vector2Int.right);

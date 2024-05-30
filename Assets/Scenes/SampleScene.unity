@@ -505,7 +505,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.78, y: -0.89, z: -10.57}
+  m_LocalPosition: {x: 4.69, y: -2.53, z: -10.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -646,6 +646,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 6683465422435759528, guid: 10dad2c53b15a8b46b88a25d72ed878e, type: 3}
   boxPrefab: {fileID: 2330889971675962903, guid: 262f480132204a94490b04e60e2c71f5, type: 3}
   goalPrefab: {fileID: 6633176215930672353, guid: e2ab0d487ece9354e9a54196cc5c0cb6, type: 3}
+  wallPrefab: {fileID: 4339452245578103918, guid: e5bb3e448ab3e5a4d960dce4bcb79489, type: 3}
 --- !u!4 &1481727998
 Transform:
   m_ObjectHideFlags: 0

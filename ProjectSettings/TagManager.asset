@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Gool
+  - ' wall'
   layers:
   - Default
   - TransparentFX
